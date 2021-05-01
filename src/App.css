@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.start-page
+{
+  background: #d9a7c7;
+  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+  background: linear-gradient(to right, #fffcdc, #d9a7c7);
+  border: 20px double white;
+}
+
+.title-header
+{
+  font-family: 'Cinzel Decorative', cursive;
+}

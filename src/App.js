@@ -1,20 +1,20 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import CharacterCard from './CharacterCard';
-import './CharacterCard.css';
+//import CharacterCard from './CharacterCard';
 import CharacterButton from './CharacterButton';
+import './App.css';
 
 function App() 
 {
-  const [info, setInfo] = useState({});
+  //const [info, setInfo] = useState({});
   const [teamList, setTeamList] = useState([]);
-  const character_info = [];
+  //const character_info = [];
   const [teamSubmitted, setTeamSubmitted] = useState(false);
 
   const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
-  useEffect(() =>{
+  /*useEffect(() =>{
     getInfo();
-  });
+  });*/
 
   function onCharaButtonClick(e)
   {
@@ -45,7 +45,7 @@ function App()
     console.log("teamList:", teamList);  
   }
 
-   function getInfo(name)
+   /*function getInfo(name)
   {
       const url = 'http://127.0.0.1:5000/characters/' + name;
       return fetch(url)
@@ -56,11 +56,19 @@ function App()
         character_info.push(response);
         return;
       }).catch(error =>(console.log(error)));  
-  } 
+  } */
   function teamSubmitClicked()
   {
-    setTeamSubmitted(true);
+    if(teamList.length > 0)
+    {
+      setTeamSubmitted(true);
     alert("Team set: " + String(teamList) + "\nGathering info...");
+    }
+    else
+    {
+      alert("Team list is empty! Please add some characters and try again.");
+    }
+    
   }
   const character_btns = [];
   for(let i = 0; i < characterList.length; i++)
@@ -70,16 +78,23 @@ function App()
   
   //getInfo("Zhongli");
   //<CharacterCard name={ info.name } src={ info.img_src } element={ info.element } weapon={ info.weapon } />
-  return (
-    <div class="container">
-      <h1 class="display-1">Genshin Info</h1>
-      <div class="row row-cols-4">
-      { character_btns }
+  if(!teamSubmitted)
+  {
+    return (
+      <div class="container-fluid start-page text-center">
+        <h1 class="display-1">Genshin Info</h1>
+        <div class="row row-cols-4">
+        { character_btns }
+        </div>
+        <button class="btn btn-success" onClick = { teamSubmitClicked }>Get Team Info</button>
       </div>
-      <button class="submit-team-btn" onClick = { teamSubmitClicked }>Get Team Info</button>
-    </div>
-    
-  );
+    );
+  } 
+  else
+  {
+    return (<h1 class="title-header">Character Info Page in Progress...</h1>);
+  }
+  
 }
 
 export default App;
