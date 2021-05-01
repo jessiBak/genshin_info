@@ -9,6 +9,8 @@ function App()
   const [info, setInfo] = useState({});
   const [teamList, setTeamList] = useState([]);
   const character_info = [];
+  const [teamSubmitted, setTeamSubmitted] = useState(false);
+
   const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
   useEffect(() =>{
     getInfo();
@@ -18,8 +20,10 @@ function App()
   {
     if(teamList.length < 4 && !teamList.includes(e.target.value))
     {
-      setTeamList([...teamList], e.target.value);
-      alert(e.target.value + "added!");
+      setTeamList([...teamList, e.target.value]);
+      document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = "7px";
+      document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = " 0 0 10px #9ecaed";
+      alert(e.target.value + " added!");
     }
     else if(teamList.length === 4 && !teamList.includes(e.target.value))
     {
@@ -33,9 +37,12 @@ function App()
       {
         prevList.splice(index, 1);
         setTeamList(prevList);
-        alert(e.target.value + "removed!");
+        document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = null;
+        document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = null;
+        alert(e.target.value + " removed!");
       } 
-    }  
+    }
+    console.log("teamList:", teamList);  
   }
 
    function getInfo(name)
@@ -50,26 +57,26 @@ function App()
         return;
       }).catch(error =>(console.log(error)));  
   } 
-  //let myTeam = ["Zhongli", "Fischl", "Hu Tao", "Xingqiu"];
-  //let chara_cards = [];
-  /*for(let i = 0; i < myTeam.length; i++)
+  function teamSubmitClicked()
   {
-    getInfo(myTeam[i]);
-    chara_cards.push(<CharacterCard key={ i } name={ info.name } src={ info.img_src } element={ info.element } weapon={ info.weapon } />);
-  }*/
+    setTeamSubmitted(true);
+    alert("Team set: " + String(teamList) + "\nGathering info...");
+  }
   const character_btns = [];
   for(let i = 0; i < characterList.length; i++)
   {
-    character_btns.push((<CharacterButton name={ characterList[i] } onClick={ onCharaButtonClick } key={ i }/>))
+    character_btns.push((<CharacterButton name={ characterList[i] } onCharaClick={ onCharaButtonClick } key={ i }/>))
   }
   
   //getInfo("Zhongli");
   //<CharacterCard name={ info.name } src={ info.img_src } element={ info.element } weapon={ info.weapon } />
   return (
     <div class="container">
+      <h1 class="display-1">Genshin Info</h1>
       <div class="row row-cols-4">
       { character_btns }
       </div>
+      <button class="submit-team-btn" onClick = { teamSubmitClicked }>Get Team Info</button>
     </div>
     
   );
