@@ -260,6 +260,7 @@ characters = {
             'from_boss_fights': 'Dvalin\'s Claw'
         }
     },
+    
     "Diona": {
         'name': 'Diona',
         'element': 'Cryo',
@@ -299,6 +300,7 @@ characters = {
             'from_boss_fights': 'Ring of Boreas'
         }
     },
+
     "Mona": {
         'name': 'Mona',
         'element': 'Hydro',
@@ -318,6 +320,7 @@ characters = {
             'from_boss_fights': 'Ring of Boreas'
         }
     },
+
     "Diluc": {
         'name': 'Diluc',
         'element': 'Pyro',
@@ -357,6 +360,7 @@ characters = {
             'from_boss_fights': 'Ring of Boreas'
         }
     },
+
     "Tartaglia": {
         'name': 'Tartaglia',
         'element': 'Hydro',
@@ -374,6 +378,26 @@ characters = {
             'from_enemies': ['Recruit\'s Insignia', 'Sergeant\'s Insignia', 'Lieutenant\'s Insignia'],
             'from_domains': ['Teachings of Freedom', 'Guide to Freedom', 'Philosophies of Freedom'],
             'from_boss_fights': 'Shard of Foul Legacy'
+        }
+    },
+
+    "Xiao": {
+        'name': 'Xiao',
+        'element': 'Anemo',
+        'weapon': 'Polearm',
+        'img_src': 'https://www.gensh.in/fileadmin/Database/Characters/Xiao/charPortrait_Xiao_XL.png',
+        'char_ascension_costs': [
+            ['20000 Mora', '1 Agnidus Agate Sliver', '3 Qingxin', '3 Slime Condensate'], 
+            ['40000 Mora', '3 Agnidus Agate Fragment', '10 Qingxin', '15 Slime Condensate', '2 Juvenile Jade'],
+            ['60000 Mora', '6 Agnidus Agate Fragment', '20 Qingxin', '12 Slime Secretions', '4 Juvenile Jade'],
+            ['80000 Mora', '3 Agnidus Agate Chunk', '30 Qingxin', '18 Slime Secretions', '8 Juvenile Jade'],
+            ['100000 Mora', '6 Agnidus Agate Chunk', '45 Qingxin', '12 Slime Concentrate', '12 Juvenile Jade'],
+            ['120000 Mora', '6 Agnidus Agate Gemstone', '60 Qingxin', '24 Slime Concentrate', '20 Juvenile Jade']
+        ],
+        'talent_ascension_costs':{
+            'from_enemies': ['Slime Condensate', 'Slime Secretions', 'Slime Concentrate'],
+            'from_domains': ['Teachings of Prosperity', 'Guide to Prosperity', 'Philosophies of Prosperity'],
+            'from_boss_fights': 'Shadow of the Warrior'
         }
     },
 }
