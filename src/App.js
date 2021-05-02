@@ -11,13 +11,17 @@ function App()
   //const character_info = [];
   const [teamSubmitted, setTeamSubmitted] = useState(false);
 
-  const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
+  const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Xiao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
   /*useEffect(() =>{
     getInfo();
   });*/
 
   function onCharaButtonClick(e)
   {
+    let id = "chara-btn-" + e.target.value;
+    var elem = document.getElementById(id);
+    if (elem.innerHTML ==="Add to Team") elem.innerHTML = "Remove from Team";
+    else elem.innerHTML = "Add to Team";
     if(teamList.length < 4 && !teamList.includes(e.target.value))
     {
       setTeamList([...teamList, e.target.value]);
@@ -82,7 +86,7 @@ function App()
   {
     return (
       <div class="container-fluid start-page text-center">
-        <h1 class="display-1">Genshin Info</h1>
+        <h1 class="title-header">Genshin Info</h1>
         <div class="row row-cols-4">
         { character_btns }
         </div>
