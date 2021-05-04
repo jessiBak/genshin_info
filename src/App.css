@@ -55,3 +55,16 @@
   width: 500px;
   height: 500px;
 }
+
+.info-page
+{
+  background: #757F9A;
+  background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+  background: linear-gradient(to right, #D7DDE8, #757F9A);
+}
+
+
+.btn-secondary
+{
+  padding: 60px 50px;
+}
