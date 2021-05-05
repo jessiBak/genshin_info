@@ -55,3 +55,28 @@
   width: 500px;
   height: 500px;
 }
+
+.info-page
+{
+  background: #CC95C0;
+  background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
+  background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
+}
+
+.chara-btns
+{
+  margin: auto;
+}
+
+.chara-nav
+{
+  padding: 60px 50px;
+  position: fixed;
+  top: 0px;
+}
+
+.chara-nav-img
+{
+  width: 55%;
+  height: 55%;
+}
