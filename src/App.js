@@ -10,7 +10,7 @@ function App()
   const [allData, setData] = useState({});
   const [teamList, setTeamList] = useState([]);
   const [teamSubmitted, setTeamSubmitted] = useState(false);
-  //const [currentCharacter, setCurrentCharacter] = useState("");
+  const [currentCharacter, setCurrentCharacter] = useState(teamSubmitted ? teamList[0] : "");
   const character_cards = [];
 
   const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Xiao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
@@ -21,8 +21,6 @@ function App()
   
   async function getInfo()
   {
-    //console.log("allData: ", allData);
-    //console.log("allData.length: ", allData.length);
     if(allData.length === undefined)
     {
       const url = 'http://127.0.0.1:5000/characters/all';
@@ -49,7 +47,6 @@ function App()
       {
         elem.innerHTML = "Add to Team";
       }
-      //alert(e.target.value + " added!");
     }
     else if(teamList.length === 4 && !teamList.includes(e.target.value))
     {
@@ -73,10 +70,8 @@ function App()
         {
           elem.innerHTML = "Add to Team";
         }
-        //alert(e.target.value + " removed!");
       } 
     }
-    //console.log("teamList:", teamList);  
   } 
 
   function teamSubmitClicked()
@@ -92,10 +87,9 @@ function App()
     }
   }
 
-  function navClicked(e)
+  const navClicked = (e) =>
   {
-    alert("Displaying info for " + e.currentTarget.value);
-    //setCurrentCharacter(e.currentTarget.value);
+    setCurrentCharacter(e.currentTarget.value);
   }
 
   const character_btns = [];
@@ -118,27 +112,21 @@ function App()
   } 
   else
   {
-    //setCurrentCharacter(teamList[0]);
-    //console.log(`currentCharacter: ${currentCharacter}`);
-
     for(let i = 0; i < teamList.length; i++)
     {
-      character_cards.push((<CharacterCard info={ allData[teamList[i]] } />));
+      character_cards.push((<CharacterCard info={ allData[currentCharacter] } />));
     }
-    //console.log("currentCharacter just before return: ", currentCharacter);
     return(
       <div class="container-fluid info-page text-center">
         <h1 class="title-header">Genshin Info</h1>
         <div class="row justify-content-center">
           <div class="col-7">
-            {<CharacterCard info={ allData[teamList[0]] }/>}
-            {/* character_cards */}
+            {<CharacterCard info={ allData[currentCharacter] }/>}
           </div>
           <div class="col-2">
             <CharacterNav team={ teamList } navClick={ navClicked } />
           </div>
         </div>
-        
       </div>
     ); 
   }
