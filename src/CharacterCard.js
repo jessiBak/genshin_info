@@ -9,6 +9,7 @@ export default function CharacterCard(props)
                 <h4>{ props.info.name }</h4>
                 <p>Element: { props.info.element }</p>
                 <p>Weapon: { props.info.weapon }</p>
+                <p>Character Ascension Materials Available Today? { String(props.info.talent_avail_today).charAt(0).toUpperCase() + String(props.info.talent_avail_today).slice(1) }</p>
             </div>
         </div>
     );

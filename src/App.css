@@ -58,13 +58,25 @@
 
 .info-page
 {
-  background: #757F9A;
-  background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
-  background: linear-gradient(to right, #D7DDE8, #757F9A);
+  background: #CC95C0;
+  background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
+  background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
 }
 
+.chara-btns
+{
+  margin: auto;
+}
 
-.btn-secondary
+.chara-nav
 {
   padding: 60px 50px;
+  position: fixed;
+  top: 0px;
+}
+
+.chara-nav-img
+{
+  width: 55%;
+  height: 55%;
 }
