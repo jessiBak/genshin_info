@@ -365,7 +365,7 @@ characters = {
         'name': 'Tartaglia',
         'element': 'Hydro',
         'weapon': 'Bow',
-        'img_src': 'https://uploadstatic-sea.mihoyo.com/contentweb/20201103/2020110321234137061.png',
+        'img_src': 'https://www.gensh.in/fileadmin/Database/Characters/Tartaglia/charPortrait_Tartaglia_XL.png',
         'char_ascension_costs': [
             ['20000 Mora', '1 Varunada Lazurite Sliver', '3 Starconch', '3 Recruit\'s Insignia'], 
             ['40000 Mora', '3 Varunada Lazurite Fragment', '10 Starconch', '15 Recruit\'s Insignia', '2 Cleansing Heart'],

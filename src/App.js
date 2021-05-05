@@ -11,7 +11,6 @@ function App()
   const [teamList, setTeamList] = useState([]);
   const [teamSubmitted, setTeamSubmitted] = useState(false);
   const [currentCharacter, setCurrentCharacter] = useState(teamSubmitted ? teamList[0] : "");
-  const character_cards = [];
 
   const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Xiao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
   
@@ -21,13 +20,10 @@ function App()
   
   async function getInfo()
   {
-    if(allData.length === undefined)
-    {
       const url = 'http://127.0.0.1:5000/characters/all';
       const apiCall = await fetch(url);
       const response = await apiCall.json();
       setData(response);
-    }
   }
 
   function onCharaButtonClick(e)
@@ -79,7 +75,8 @@ function App()
     if(teamList.length > 0)
     {
       setTeamSubmitted(true);
-    alert("Team set: " + String(teamList) + "\nGathering info...");
+      alert("Team set: " + String(teamList) + "\nGathering info...");
+      console.log("value of allData on submit: ", allData);
     }
     else
     {
@@ -112,10 +109,12 @@ function App()
   } 
   else
   {
-    for(let i = 0; i < teamList.length; i++)
+    if(currentCharacter.length === 0)
     {
-      character_cards.push((<CharacterCard info={ allData[currentCharacter] } />));
+      setCurrentCharacter(teamList[0]);
     }
+    console.log("currentCharacter: ", currentCharacter);
+    console.log("allData[currentCharacter]: ", allData[currentCharacter]);
     return(
       <div class="container-fluid info-page text-center">
         <h1 class="title-header">Genshin Info</h1>
