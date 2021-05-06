@@ -54,15 +54,17 @@
 {
   width: 500px;
   height: 500px;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  /*border-top-left-radius: 50%;
+  border-top-right-radius: 50%;*/
 }
 
 .info-page
 {
-  background: #FFEFBA;
-  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
-  background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+  background: #C6FFDD;
+  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+
+
 }
 
 .chara-btns
@@ -77,13 +79,36 @@
   top: 0px;
 }
 
+
 .chara-nav-img
 {
   width: 55%;
   height: 55%;
 }
 
-.chara-card-outer-div
+
+
+.chara-card-img-div
 {
-  background-color: #e9e0e1;
+  background-color: #d2d8d8;
+  border-radius: 25px;
+}
+
+.chara-card-body
+{
+  background-color: #a0eaff;
+  border-radius: 25px;
+}
+
+.title-header2
+{
+  font-family: 'Cinzel Decorative', cursive;
+  color: #f4fafc;
+}
+
+.drop-btn
+{
+  background-color: #f1f8ff;
+  color: black;
+  border-color: white;
 }
