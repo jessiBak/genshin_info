@@ -84,7 +84,7 @@ function App()
     }
   }
 
-  const navClicked = (e) =>
+  function navClicked(e)
   {
     setCurrentCharacter(e.currentTarget.value);
   }
@@ -117,7 +117,7 @@ function App()
     console.log("allData[currentCharacter]: ", allData[currentCharacter]);
     return(
       <div class="container-fluid info-page text-center">
-        <h1 class="title-header">Genshin Info</h1>
+        <h1 class="title-header2">Genshin Info</h1>
         <div class="row justify-content-center">
           <div class="col-7 chara-card-outer-div">
             {<CharacterCard info={ allData[currentCharacter] }/>}

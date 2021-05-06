@@ -45,7 +45,7 @@ characters = {
         'name': 'Zhongli',
         'element': 'Geo',
         'weapon': 'Polearm',
-        'img_src': 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5e5896a5-4a79-496a-bea4-81f26cfa2650/deeqrjj-b7415556-8bd0-4beb-9ecc-8e8accae66e6.png/v1/fill/w_1280,h_785,strp/zhongli_genshin_impact_transparent_render_png_by_deg5270_deeqrjj-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD03ODUiLCJwYXRoIjoiXC9mXC81ZTU4OTZhNS00YTc5LTQ5NmEtYmVhNC04MWYyNmNmYTI2NTBcL2RlZXFyamotYjc0MTU1NTYtOGJkMC00YmViLTllY2MtOGU4YWNjYWU2NmU2LnBuZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.kWPMmpbzb5jyxSZ02OFxUqLicpb0UJhM7sUYpBwEQq8',
+        'img_src': 'https://i.pinimg.com/originals/42/73/a3/4273a38d1a73e8ddf1ba89dcb7a8d3f8.png',
         'char_ascension_costs': [
             ['20000 Mora', '1 Prithiva Topaz Sliver', '3 Cor Lapis', '3 Slime Condensate'], 
             ['40000 Mora', '3 Prithiva Topaz Fragment', '10 Cor Lapis', '15 Slime Condensate', '2 Basalt Pillar'],
@@ -85,7 +85,7 @@ characters = {
         'name': 'Hu Tao',
         'element': 'Pyro',
         'weapon': 'Polearm',
-        'img_src': 'https://genshinimpact.wiki.fextralife.com/file/Genshin-Impact/hu-tao-character-genshin-guide-wiki-guide.png',
+        'img_src': 'https://www.gensh.in/fileadmin/Database/Characters/HuTao/charPortrait_HuTao.png',
         'char_ascension_costs': [
             ['20000 Mora', '1 Agnidus Agate Sliver', '3 Silk Flower', '3 Whopperflower Nectar'], 
             ['40000 Mora', '3 Agnidus Agate Fragment', '10 Silk Flower', '15 Whopperflower Nectar', '2 Juvenile Jade'],
