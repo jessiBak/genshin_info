@@ -119,7 +119,7 @@ function App()
       <div class="container-fluid info-page text-center">
         <h1 class="title-header">Genshin Info</h1>
         <div class="row justify-content-center">
-          <div class="col-7">
+          <div class="col-7 chara-card-outer-div">
             {<CharacterCard info={ allData[currentCharacter] }/>}
           </div>
           <div class="col-2">
