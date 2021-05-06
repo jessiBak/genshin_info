@@ -54,13 +54,15 @@
 {
   width: 500px;
   height: 500px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
 }
 
 .info-page
 {
-  background: #CC95C0;
-  background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
-  background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);
+  background: #FFEFBA;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+  background: linear-gradient(to right, #FFFFFF, #FFEFBA);
 }
 
 .chara-btns
@@ -79,4 +81,9 @@
 {
   width: 55%;
   height: 55%;
+}
+
+.chara-card-outer-div
+{
+  background-color: #e9e0e1;
 }
