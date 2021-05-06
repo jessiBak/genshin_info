@@ -20,7 +20,7 @@ export default function CharacterCard(props)
                 <br/>
                 <DropdownList name="Talent Ascension Materials (From Weekly Bosses)" list={[props.info.talent_ascension_costs.from_boss_fights] } />
                 <br/>
-                <p>Character Ascension Materials Available Today? { String(props.info.talent_avail_today).charAt(0).toUpperCase() + String(props.info.talent_avail_today).slice(1) }</p>
+                <p>Talent Ascension Materials Available Today? { String(props.info.talent_avail_today).charAt(0).toUpperCase() + String(props.info.talent_avail_today).slice(1) }</p>
             </div>
         </div>
     );
