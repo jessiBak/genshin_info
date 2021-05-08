@@ -118,6 +118,7 @@ function App()
     return(
       <div class="container-fluid info-page text-center">
         <h1 class="title-header2">Genshin Info</h1>
+        <h2 class="team-title">Team Builder</h2>
         <div class="row justify-content-center">
           <div class="col-7 chara-card-outer-div">
             {<CharacterCard info={ allData[currentCharacter] }/>}

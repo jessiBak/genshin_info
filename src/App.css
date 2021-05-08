@@ -63,8 +63,9 @@
   background: #C6FFDD;
   background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
   background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
-
-
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .chara-btns
@@ -79,14 +80,37 @@
   top: 0px;
 }
 
-
 .chara-nav-img
 {
   width: 55%;
   height: 55%;
+  border-radius: 12px;
 }
 
+.nav-btn
+{
+  background-color:#ffcf91;
+  border-color:#acffed;
+  border-radius: 12px;
+}
 
+.nav-btn:hover
+{
+  background-color:#ffb85b;
+  border-color:#acffed;
+  border-radius: 12px;
+}
+
+@media  only screen and (max-width: 770px) 
+{
+ .chara-nav
+ {
+  padding: 60px 50px;
+  position: fixed;
+  top: 0px;
+  float: left;
+ }
+}
 
 .chara-card-img-div
 {

@@ -205,7 +205,7 @@ characters = {
         'name': 'Fischl',
         'element': 'Electro',
         'weapon': 'Bow',
-        'img_src': 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5e5896a5-4a79-496a-bea4-81f26cfa2650/de90z8p-2fe72f0e-59e4-4ba2-987f-a8a03602b9ec.png/v1/fill/w_1280,h_785,strp/fischl_genshin_impact_transparent_render_png_by_deg5270_de90z8p-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD03ODUiLCJwYXRoIjoiXC9mXC81ZTU4OTZhNS00YTc5LTQ5NmEtYmVhNC04MWYyNmNmYTI2NTBcL2RlOTB6OHAtMmZlNzJmMGUtNTllNC00YmEyLTk4N2YtYThhMDM2MDJiOWVjLnBuZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.AHQwvuSp0xbs_oTkd8kXRYolD9XfPGf6UCF8oBCtoXI',
+        'img_src': 'https://www.gensh.in/fileadmin/Database/Characters/Fischl/charPortrait_Fischl_XL.png',
         'char_ascension_costs': [
             ['20000 Mora', '1 Vajrada Amethyst Sliver', '3 Small Lamp Grass', '3 Firm Arrowhead'], 
             ['40000 Mora', '3 Vajrada Amethyst Fragment', '10 Small Lamp Grass', '15 Firm Arrowhead', '2 Lightning Prism'],
