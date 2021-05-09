@@ -9,20 +9,15 @@ export default function CharacterBrowsePage(props)
 
     for(let i = 0; i < characterList.length; i++)
     {
-        allCards.push(<CharacterCard info={allData[characterList[i]]} />);
-    }
-
-    allCards.map((allCards, index) => 
-    {
-        if(index === 0)
+        if(i === 0)
         {
-            return (<div class="carousel-item active"> { allCards[index] } </div>);
+            allCards.push(<div class="carousel-item active"><CharacterCard info={allData[characterList[i]]} /></div>);
         }
         else
         {
-            return (<div class="carousel-item"> { allCards[index] } </div>); 
-        }  
-    });
+            allCards.push(<div class="carousel-item"><CharacterCard info={allData[characterList[i]]} /> </div>);
+        }   
+    }
 
     return(
         <div className="container-fluid chara-browse-page">
