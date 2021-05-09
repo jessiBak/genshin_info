@@ -1,7 +1,9 @@
 import React from 'react';
 import { useEffect, useState} from 'react';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import TeamBuildPage from './TeamBuilderPage';
 import CharacterBrowsePage from './CharacterBrowsePage';
+import PlannerPage from './WeeklyDomainPlannerPage';
 import './App.css';
 
 function App() 
@@ -48,47 +50,42 @@ function App()
     setTeamBuild(false);
   }
 
-  if(isStart)
+  function startPage()
   {
     return(
-      <div className="container start-page">
+    <div className="container start-page">
         <h1 className="startTitle">Welcome to Genshin Info!</h1>
         <h2 className="start-header">I want to...</h2>
-        <button className="btn btn-secondary team-btn" onClick={ teamClicked } >Build a Team!</button>
-        <button className="btn btn-secondary plan-btn" onClick={ planClicked }>Plan for Weekly Domains!</button>
-        <button className="btn btn-secondary browse-btn" onClick={ browseClicked }>Browse all Characters!</button>
+        <Link to="/team-builder" >Build a Team!</Link>
+        <Link to="/planner" >Plan for Weekly Domains!</Link>
+        <Link to="/browse" >Browse all Characters!</Link>
       </div>
     );
   }
+    
+  return(
+    <BrowserRouter>
+      <Switch>
 
-  if(isBrowse)
-  {
-    console.log("Dislaying Character Browsing Page...");
-    return(< CharacterBrowsePage allData={allData}/>);
-  }
-  else if(isPlan)
-  {
-    console.log("Dislaying Weekly Domain Planner Page...");
-    return(<h1>Weekly Domain Planner Page In Progress!</h1>);
-  }
-  else if( isTeamBuild)
-  {
-    console.log("Dislaying Team Builder Page...");
-    return(<TeamBuildPage allData={ allData }/>);
-  }
-  else
-  {
-    console.log("s: ", isStart);
-    console.log("p: ", isPlan);
-    console.log("t: ", isTeamBuild);
-    console.log("b: ", isBrowse);
-    return(
-      <div>
-        <h1>Uh oh...</h1>
-        <h2>Check console for log...</h2>
-      </div>
-    );
-  }
+        <Route exact path="/" >
+          { startPage }
+        </Route>
+
+        <Route exact path="/team-builder">
+          <TeamBuildPage allData={ allData } />
+        </Route>
+        
+        <Route exact path="/browse" >
+          <CharacterBrowsePage allData={ allData } />
+        </Route>
+
+        <Route exact path="/planner" >
+          <PlannerPage />
+        </Route>
+
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
