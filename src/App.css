@@ -58,13 +58,21 @@
   border-top-right-radius: 50%;*/
 }
 
+.start-page
+{
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+}
+
 .info-page
 {
   background: #C6FFDD;
   background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
   background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
-
-
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .chara-btns
@@ -79,14 +87,37 @@
   top: 0px;
 }
 
-
 .chara-nav-img
 {
   width: 55%;
   height: 55%;
+  border-radius: 12px;
 }
 
+.nav-btn
+{
+  background-color:#ffcf91;
+  border-color:#acffed;
+  border-radius: 12px;
+}
 
+.nav-btn:hover
+{
+  background-color:#ffb85b;
+  border-color:#acffed;
+  border-radius: 12px;
+}
+
+@media  only screen and (max-width: 770px) 
+{
+ .chara-nav
+ {
+  padding: 60px 50px;
+  position: fixed;
+  top: 0px;
+  float: left;
+ }
+}
 
 .chara-card-img-div
 {
@@ -111,4 +142,15 @@
   background-color: #f1f8ff;
   color: black;
   border-color: white;
+}
+
+.chara-browse-page
+{
+  background: #4e54c8;
+  background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
+  background: linear-gradient(to right, #8f94fb, #4e54c8);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
