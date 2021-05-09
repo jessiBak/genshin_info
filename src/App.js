@@ -11,6 +11,10 @@ function App()
   const [teamList, setTeamList] = useState([]);
   const [teamSubmitted, setTeamSubmitted] = useState(false);
   const [currentCharacter, setCurrentCharacter] = useState(teamSubmitted ? teamList[0] : "");
+  const [isStart, setStart] = useState(true);
+  const [isTeamBuild, setTeamBuild] = useState(false);
+  const [isPlan, setPlan] = useState(false);
+  const [isBrowse, setBrowse] = useState(false);
 
   const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Xiao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
   
@@ -89,15 +93,60 @@ function App()
     setCurrentCharacter(e.currentTarget.value);
   }
 
+  function teamClicked()
+  {
+    setTeamBuild(true);
+    setStart(false);
+    setBrowse(false);
+    setPlan(false);
+  }
+
+  function planClicked()
+  {
+    setPlan(true);
+    setStart(false);
+    setTeamBuild(false);
+    setBrowse(false);
+  }
+
+  function browseClicked()
+  {
+    setBrowse(true);
+    setStart(false);
+    setPlan(false);
+    setTeamBuild(false);
+  }
+
   const character_btns = [];
   for(let i = 0; i < characterList.length; i++)
   {
     character_btns.push((<CharacterButton name={ characterList[i] } onCharaClick={ onCharaButtonClick } key={ i }/>))
   }
-  
-  if(!teamSubmitted)
+
+  if(isStart)
   {
-    return (
+    return(
+      <div className="container start-page">
+        <h1 className="startTitle">Welcome to Genshin Info!</h1>
+        <h2 className="start-header">I want to...</h2>
+        <button className="btn btn-secondary team-btn" onClick={ teamClicked } >Build a Team!</button>
+        <button className="btn btn-secondary plan-btn" onClick={ planClicked }>Plan for Weekly Domains!</button>
+        <button className="btn btn-secondary browse-btn" onClick={ browseClicked }>Browse all Characters!</button>
+      </div>
+    );
+  }
+
+  if(isBrowse && !isStart && !isTeamBuild && !isPlan)
+  {
+    return(<h1>Character Browse Page In Progress!</h1>);
+  }
+  else if(isPlan && ! isStart && ! isTeamBuild && !isBrowse)
+  {
+    return(<h1>Weekly Domain Planner Page In Progress!</h1>);
+  }
+  else if(!teamSubmitted && isTeamBuild && !isStart && !isPlan && !isBrowse)
+  {
+    return(
       <div class="container-fluid start-page text-center">
         <h1 class="title-header">Genshin Info</h1>
         <div class="row row-cols-4 chara-btns">
@@ -107,7 +156,7 @@ function App()
       </div>
     );
   } 
-  else
+  else if(teamSubmitted && isTeamBuild && !isStart && !isPlan && !isBrowse)
   {
     if(currentCharacter.length === 0)
     {
@@ -120,15 +169,28 @@ function App()
         <h1 class="title-header2">Genshin Info</h1>
         <h2 class="team-title">Team Builder</h2>
         <div class="row justify-content-center">
-          <div class="col-7 chara-card-outer-div">
+          <div class="col-6 chara-card-outer-div">
             {<CharacterCard info={ allData[currentCharacter] }/>}
           </div>
-          <div class="col-2">
+          <div class="col-6">
             <CharacterNav team={ teamList } navClick={ navClicked } />
           </div>
         </div>
       </div>
     ); 
+  }
+  else
+  {
+    console.log("s: ", isStart);
+    console.log("p: ", isPlan);
+    console.log("t: ", isTeamBuild);
+    console.log("b: ", isBrowse);
+    return(
+      <div>
+        <h1>Uh oh...</h1>
+        <h2>Check console for log...</h2>
+      </div>
+    );
   }
 }
 

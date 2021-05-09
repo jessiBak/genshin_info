@@ -58,6 +58,13 @@
   border-top-right-radius: 50%;*/
 }
 
+.start-page
+{
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+}
+
 .info-page
 {
   background: #C6FFDD;
