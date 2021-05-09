@@ -9,10 +9,6 @@ import './App.css';
 function App() 
 {
   const [allData, setData] = useState({});
-  const [isStart, setStart] = useState(true);
-  const [isTeamBuild, setTeamBuild] = useState(false);
-  const [isPlan, setPlan] = useState(false);
-  const [isBrowse, setBrowse] = useState(false);
 
   useEffect(() => {
     getInfo();
@@ -26,30 +22,6 @@ function App()
       setData(response);
   }
 
-  function teamClicked()
-  {
-    setTeamBuild(true);
-    setStart(false);
-    setBrowse(false);
-    setPlan(false);
-  }
-
-  function planClicked()
-  {
-    setPlan(true);
-    setStart(false);
-    setTeamBuild(false);
-    setBrowse(false);
-  }
-
-  function browseClicked()
-  {
-    setBrowse(true);
-    setStart(false);
-    setPlan(false);
-    setTeamBuild(false);
-  }
-
   function startPage()
   {
     return(
@@ -57,7 +29,9 @@ function App()
         <h1 className="startTitle">Welcome to Genshin Info!</h1>
         <h2 className="start-header">I want to...</h2>
         <Link to="/team-builder" >Build a Team!</Link>
+        <br/>
         <Link to="/planner" >Plan for Weekly Domains!</Link>
+        <br/>
         <Link to="/browse" >Browse all Characters!</Link>
       </div>
     );
