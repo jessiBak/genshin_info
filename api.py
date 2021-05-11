@@ -30,6 +30,8 @@ def talent_avail(char_name):
 for k, v in characters.items():
     if isinstance(v, dict):
         v['talent_avail_today'] = talent_avail(k)
+        tal_type = characters[k]['talent_ascension_costs']['from_domains'][0].split(' ')[2]
+        v['talent_avail_days'] = {tal_type : talent_times[tal_type]}
     #print(item.items())
     #characters[item] = characters[item] | {'talent_avail_today': talent_avail(item)}
 
@@ -46,8 +48,7 @@ days_map = {
 #Home page
 @app.route('/', methods=['GET'])
 def home():
-    #return "<h1>Genshin Impact API</h1><p>This is an API for getting character, talent, and weapon ascension material info.</p>"
-    return "Genshin Info"
+    return "Genshin Info\nOptions:\n/characters/all\n/characters/[NAME]\n/characters/today"
 
 #function that returns info for all characters 
 @app.route('/characters/all', methods=['GET'])
