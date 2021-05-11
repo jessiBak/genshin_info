@@ -1,3 +1,7 @@
+# Running This Project:
+1. Open the project directory in your terminal/command prompt and run the command `python api.py`
+2. Open another terminal/command prompt, navigate to the project directory, and run `npm run start`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
