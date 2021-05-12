@@ -85,7 +85,7 @@ export default function TeamBuildPage(props)
     if(!teamSubmitted)
     {
         return(
-            <div class="container-fluid start-page text-center">
+            <div class="container-fluid team-page text-center">
                 <h1 class="title-header">Genshin Info</h1>
                 <div class="row row-cols-4 chara-btns">
                 { character_btns }
