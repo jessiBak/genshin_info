@@ -1,3 +1,11 @@
+# Genshin Info
+A React-Flask web app to give information about characters and their talent/weapon material availability for the game Genshin Impact
+
+# Requirements:
+
+* `pip install Flask` 
+* `pip install Flask-Cors`
+
 # Running This Project:
 1. Open the project directory in your terminal/command prompt and run the command `python api.py`
 2. Open another terminal/command prompt, navigate to the project directory, and run `npm run start`
