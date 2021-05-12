@@ -25,7 +25,7 @@ function App()
   function startPage()
   {
     return(
-    <div className="container start-page">
+    <div className="container-fluid justify-content-center text-center start-page">
         <h1 className="startTitle">Welcome to Genshin Info!</h1>
         <h2 className="start-header">I want to...</h2>
         <Link to="/team-builder" >Build a Team!</Link>
@@ -47,17 +47,21 @@ function App()
 
         <Route exact path="/team-builder">
           <TeamBuildPage allData={ allData } />
+          <Link to="/" >Back to Home</Link>
         </Route>
         
         <Route exact path="/browse" >
           <CharacterBrowsePage allData={ allData } />
+          <Link to="/" >Back to Home</Link>
         </Route>
 
         <Route exact path="/planner" >
           <PlannerPage />
+          <Link to="/" >Back to Home</Link>
         </Route>
 
       </Switch>
+      
     </BrowserRouter>
   );
 }

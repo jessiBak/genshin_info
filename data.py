@@ -401,3 +401,54 @@ characters = {
         }
     },
 }
+
+artifacts = { 
+        'Decarabian\'s Set': 
+        {
+            'names': ['Tile of Decarabian\'s Tower', 'Debris of Decarabian\'s City', 'Fragment of Decarabian\'s Epic', 'Scattered Piece of Decarabian\'s Dream'],
+            'days_avail': [0, 3, 6],
+            'location': 'Cecilia Garden, Mondstadt',
+            'img_src': '/public/images/Decarabian.png'
+        },
+
+        'Boreal Wolf\'s Set': 
+        {
+            'names': ['Boreal Wolf\'s Milk Tooth', 'Boreal Wolf\'s Cracked Tooth', 'Boreal Wolf\'s Broken Fang', 'Boreal Wolf\'s Nostalgia'],
+            'days_avail': [2, 4, 6],
+            'location': 'Cecilia Garden, Mondstadt',
+            'img_src': '/public/images/Boreal.png'
+        },
+
+        'Dandelion Gladiator Set': 
+        {
+            'names': ['Fetters of the Dandelion Gladiator', 'Chains of the Dandelion Gladiator', 'Shackles of the Dandelion Gladiator', 'Dream of the Dandelion Gladiator'],
+            'days_avail': [2, 5, 6],
+            'location': 'Cecilia Garden, Mondstadt',
+            'img_src': '/public/images/Dandelion.png'
+        }, # 0 = Mon, 1 = Tues, 2 = Wed, 3 = Thurs, 4 = Fri, 5 = Sat, 6 = Sun
+
+        'Guyun Set':
+        {
+            'names': ['Luminous Sands from Guyun', 'Lustrous Stone from Guyun', 'Relic from Guyun', 'Divine Body from Guyun'],
+            'days_avail': [0, 3, 6],
+            'location': 'Hidden Palace of Lianshan Formula, Liyue',
+            'img_src': '/public/images/Guyun.png'
+        },
+
+        'Mist Veiled Elixir Set':
+        {
+            'names': ['Mist Veiled Lead Elixir', 'Mist Veiled Mercury Elixir', 'Mist Veiled Gold Elixir', 'Mist Veiled Primo Elixir'],
+            'days_avail': [1, 4, 6],
+            'location': 'Hidden Palace of Lianshan Formula, Liyue',
+            'img_src': '/public/images/Elixir.png'
+
+        },
+
+        'Aerosiderite Set':
+        {
+            'names': ['Grain of Aerosiderite', 'Piece of Aerosiderite', 'Bit of Aerosiderite', 'Chunk of Aerosiderite'],
+            'days_avail': [2, 5, 6],
+            'location': 'Hidden Palace of Lianshan Formula, Liyue',
+            'img_src': '/public/images/Aerosiderite.png'
+        },
+}

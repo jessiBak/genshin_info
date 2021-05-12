@@ -2,7 +2,7 @@ import flask
 from flask import request, jsonify, render_template, json, make_response
 from flask_cors import CORS
 from datetime import date
-from data import characters
+from data import characters, artifacts
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -79,6 +79,11 @@ def team(input_team):
         if v['talent_avail_today'] and k in input_team:
             avail_today[k] = v
     return avail_today
+
+@app.route('/artifacts', methods=['GET'])
+def artifacts():
+    return jsonify(artifacts)
+
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 if __name__=="__main__":
