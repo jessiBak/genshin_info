@@ -402,7 +402,7 @@ characters = {
     },
 }
 
-artifacts = { 
+weapon_materials = { 
         'Decarabian\'s Set': 
         {
             'names': ['Tile of Decarabian\'s Tower', 'Debris of Decarabian\'s City', 'Fragment of Decarabian\'s Epic', 'Scattered Piece of Decarabian\'s Dream'],
