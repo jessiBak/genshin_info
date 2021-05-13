@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect/*, useState*/} from 'react';
+import { useEffect, useState} from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
@@ -62,7 +62,9 @@ const teamReducer = (state = initialState, action) =>
 }
 
 const store = createStore(teamReducer);
-const allData = store.getState().allData;
+let allData = store.getState().allData;
+//const [state, updateState] = useState({});
+//store.subscribe(() => {updateState(store.getState())});
 
   useEffect(() => {
     getInfo();

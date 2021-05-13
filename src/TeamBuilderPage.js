@@ -1,5 +1,5 @@
 import React from 'react';
-//import { useState } from 'react';
+import { useState } from 'react';
 import { useStore } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import CharacterNav from './CharacterNav';
@@ -9,12 +9,8 @@ export default function TeamBuildPage(props)
 {
     const allData = props.allData;
     const store = useStore();
-    const teamList = store.getState().teamList;
-    const teamSubmitted = store.getState().teamSubmitted;
-    const currentCharacter = store.getState().currentCharacter;
-    //const [teamList, setTeamList] = useState([]);
-   // const [teamSubmitted, setTeamSubmitted] = useState(false);
-   // const [currentCharacter, setCurrentCharacter] = useState("");
+    const [state, updateState] = useState({});
+    store.subscribe(() => {updateState(store.getState())});
 
     function addCharacter(character)
     {
@@ -49,13 +45,11 @@ export default function TeamBuildPage(props)
 
     function onCharaButtonClick(e)
     {
-        store.getState();
         let id = "chara-btn-" + e.target.value;
         var elem = document.getElementById(id);
-        if(teamList.length < 4 && !teamList.includes(e.target.value))
+        if(state.teamList.length < 4 && !state.teamList.includes(e.target.value))
         {
             store.dispatch(addCharacter(e.target.value));
-            //setTeamList([...teamList, e.target.value]);
             document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = "7px";
             document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = " 0 0 10px #9ecaed";
             if (elem.innerHTML === "Add to Team") 
@@ -67,18 +61,12 @@ export default function TeamBuildPage(props)
                 elem.innerHTML = "Add to Team";
             }
         }
-        else if(teamList.length === 4 && !teamList.includes(e.target.value))
+        else if(state.teamList.length === 4 && !state.teamList.includes(e.target.value))
         {
             alert("Team has reached max members! Please remove a member to add another.");
         }
         else
         {
-           // let prevList = [...teamList];
-            //let index = prevList.indexOf(e.target.value);
-            //if(index !== - 1)
-            //{
-                //prevList.splice(index, 1);
-                //setTeamList(prevList);
                 store.dispatch(removeCharacter(e.target.value));
                 document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = null;
                 document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = null;
@@ -90,17 +78,15 @@ export default function TeamBuildPage(props)
                 {
                     elem.innerHTML = "Add to Team";
                 }
-            //} 
         }
     } 
 
     function teamSubmitClicked()
     {
-        if(store.getState().teamList.length > 0)
+        if(state.teamList.length > 0)
         {
-            //setTeamSubmitted(true);
             store.dispatch(submittedTeam());
-            alert("Team set: " + String(store.getState().teamList) + "\nGathering info...");
+            alert("Team set: " + String(state.teamList) + "\nGathering info...");
             console.log("value of allData on submit: ", allData);
         }
         else
@@ -111,7 +97,6 @@ export default function TeamBuildPage(props)
 
     function navClicked(e)
     {
-        //setCurrentCharacter(e.currentTarget.value);
         store.dispatch(changeCurrentCharacter(e.currentTarget.value));
     }
 
@@ -121,9 +106,8 @@ export default function TeamBuildPage(props)
         character_btns.push((<CharacterButton name={ characterList[i] } onCharaClick={ onCharaButtonClick } key={ i }/>))
     }
     
-    if(store.getState().teamSubmitted)
+    if(!state.teamSubmitted)
     {
-        store.getState();
         return(
             <div class="container-fluid team-page text-center">
                 <h1 class="title-header">Genshin Info</h1>
@@ -136,21 +120,21 @@ export default function TeamBuildPage(props)
     } 
     else
     {
-        store.getState();
-        //setCurrentCharacter(teamList[0]);
-        store.dispatch(changeCurrentCharacter(store.getState().teamList[0]));
-        
-        console.log("currentCharacter: ", store.getState().currentCharacter);
-        console.log("allData[currentCharacter]: ", store.getState().allData[store.getState().currentCharacter]);
+        if(state.currentCharacter === "")
+        {
+            store.dispatch(changeCurrentCharacter(state.teamList[0]));
+        }
+        console.log("currentCharacter: ", state.currentCharacter);
+        console.log("allData[currentCharacter]: ", state.allData[state.currentCharacter]);
         return(
             <div class="container-fluid info-page text-center">
                 <h1 class="title-header2">Genshin Info</h1>
                 <div class="row justify-content-center">
                 <div class="col-7 chara-card-outer-div">
-                    {<CharacterCard info={ store.getState().allData[store.getState().currentCharacter] }/>}
+                    {<CharacterCard info={ state.allData[state.currentCharacter] }/>}
                 </div>
                 <div class="col-2">
-                    <CharacterNav team={ store.getState().teamList } navClick={ navClicked } />
+                    <CharacterNav team={ state.teamList } navClick={ navClicked } />
                 </div>
                 </div>
             </div>
