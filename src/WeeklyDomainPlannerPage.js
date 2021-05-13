@@ -15,5 +15,17 @@ const day_map =
 
 export default function PlannerPage()
 {
-    return(<h2>Weekly Domain Planner Page in Progress :)</h2>);
+    return(
+        <div class="container planner-page">
+            <div class="row planner-cols">
+                <div class="col-md-1">Sunday</div>
+                <div class="col-md-1">Monday</div>
+                <div class="col-md-1">Tuesday</div>
+                <div class="col-md-1">Wednesday</div>
+                <div class="col-md-1">Thursday</div>
+                <div class="col-md-1">Friday</div>
+                <div class="col-md-1">Saturday</div>
+            </div>
+        </div>
+    );
 }

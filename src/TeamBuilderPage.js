@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
+import { useStore } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import CharacterNav from './CharacterNav';
 import CharacterButton from './CharacterButton';
@@ -7,22 +8,57 @@ import CharacterButton from './CharacterButton';
 export default function TeamBuildPage(props)
 {
     const allData = props.allData;
-    const [teamList, setTeamList] = useState([]);
-    const [teamSubmitted, setTeamSubmitted] = useState(false);
-    const [currentCharacter, setCurrentCharacter] = useState(teamSubmitted ? teamList[0] : "");
+    const store = useStore();
+    const teamList = store.getState().teamList;
+    const teamSubmitted = store.getState().teamSubmitted;
+    const currentCharacter = store.getState().currentCharacter;
+    //const [teamList, setTeamList] = useState([]);
+   // const [teamSubmitted, setTeamSubmitted] = useState(false);
+   // const [currentCharacter, setCurrentCharacter] = useState("");
+
+    function addCharacter(character)
+    {
+        return {
+            type: 'teamList/addCharacter',
+            payload: character
+        };
+    }
+
+    function removeCharacter(character)
+    {
+        return {
+            type: 'teamList/removeCharacter',
+            payload: character
+        };
+    }
+
+    function submittedTeam()
+    {
+        return { type: 'teamSubmitted/toggleSubmitted' }
+    }
+
+    function changeCurrentCharacter(character)
+    {
+        return {
+            type: 'currentCharacter/changeCurrentCharacter',
+            payload: character
+        }
+    }
 
     const characterList = ['Traveler (Anemo)', 'Traveler (Geo)', 'Zhongli', 'Hu Tao', 'Xiao', 'Qiqi', 'Keqing', 'Tartaglia', 'Diluc', 'Mona', 'Beidou', 'Xingqiu', 'Chongyun', 'Ningguang', 'Xiangling', 'Bennett', 'Fischl', 'Xinyan', 'Diona', 'Barbara'];
 
     function onCharaButtonClick(e)
     {
+        store.getState();
         let id = "chara-btn-" + e.target.value;
         var elem = document.getElementById(id);
         if(teamList.length < 4 && !teamList.includes(e.target.value))
         {
-            setTeamList([...teamList, e.target.value]);
+            store.dispatch(addCharacter(e.target.value));
+            //setTeamList([...teamList, e.target.value]);
             document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = "7px";
             document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = " 0 0 10px #9ecaed";
-            if (elem.innerHTML ==="Add to Team") 
+            if (elem.innerHTML === "Add to Team") 
             {
                 elem.innerHTML = "Remove from Team";
             }
@@ -37,12 +73,13 @@ export default function TeamBuildPage(props)
         }
         else
         {
-            let prevList = [...teamList];
-            let index = prevList.indexOf(e.target.value);
-            if(index !== - 1)
-            {
-                prevList.splice(index, 1);
-                setTeamList(prevList);
+           // let prevList = [...teamList];
+            //let index = prevList.indexOf(e.target.value);
+            //if(index !== - 1)
+            //{
+                //prevList.splice(index, 1);
+                //setTeamList(prevList);
+                store.dispatch(removeCharacter(e.target.value));
                 document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = null;
                 document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.boxShadow = null;
                 if (elem.innerHTML ==="Add to Team") 
@@ -53,16 +90,17 @@ export default function TeamBuildPage(props)
                 {
                     elem.innerHTML = "Add to Team";
                 }
-            } 
+            //} 
         }
     } 
 
     function teamSubmitClicked()
     {
-        if(teamList.length > 0)
+        if(store.getState().teamList.length > 0)
         {
-            setTeamSubmitted(true);
-            alert("Team set: " + String(teamList) + "\nGathering info...");
+            //setTeamSubmitted(true);
+            store.dispatch(submittedTeam());
+            alert("Team set: " + String(store.getState().teamList) + "\nGathering info...");
             console.log("value of allData on submit: ", allData);
         }
         else
@@ -73,7 +111,8 @@ export default function TeamBuildPage(props)
 
     function navClicked(e)
     {
-        setCurrentCharacter(e.currentTarget.value);
+        //setCurrentCharacter(e.currentTarget.value);
+        store.dispatch(changeCurrentCharacter(e.currentTarget.value));
     }
 
     const character_btns = [];
@@ -82,8 +121,9 @@ export default function TeamBuildPage(props)
         character_btns.push((<CharacterButton name={ characterList[i] } onCharaClick={ onCharaButtonClick } key={ i }/>))
     }
     
-    if(!teamSubmitted)
+    if(store.getState().teamSubmitted)
     {
+        store.getState();
         return(
             <div class="container-fluid team-page text-center">
                 <h1 class="title-header">Genshin Info</h1>
@@ -96,21 +136,21 @@ export default function TeamBuildPage(props)
     } 
     else
     {
-        if(currentCharacter.length === 0)
-        {
-            setCurrentCharacter(teamList[0]);
-        }
-        console.log("currentCharacter: ", currentCharacter);
-        console.log("allData[currentCharacter]: ", allData[currentCharacter]);
+        store.getState();
+        //setCurrentCharacter(teamList[0]);
+        store.dispatch(changeCurrentCharacter(store.getState().teamList[0]));
+        
+        console.log("currentCharacter: ", store.getState().currentCharacter);
+        console.log("allData[currentCharacter]: ", store.getState().allData[store.getState().currentCharacter]);
         return(
             <div class="container-fluid info-page text-center">
                 <h1 class="title-header2">Genshin Info</h1>
                 <div class="row justify-content-center">
                 <div class="col-7 chara-card-outer-div">
-                    {<CharacterCard info={ allData[currentCharacter] }/>}
+                    {<CharacterCard info={ store.getState().allData[store.getState().currentCharacter] }/>}
                 </div>
                 <div class="col-2">
-                    <CharacterNav team={ teamList } navClick={ navClicked } />
+                    <CharacterNav team={ store.getState().teamList } navClick={ navClicked } />
                 </div>
                 </div>
             </div>
