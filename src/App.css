@@ -155,3 +155,20 @@
   text-align: center;
 }
 
+@media (min-width: 768px){
+  .planner-cols .col-md-1,
+  .planner-cols .col-sm-1,
+  .planner-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .planner-cols .col-md-1,
+  .planner-cols .col-sm-1,
+  .planner-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
