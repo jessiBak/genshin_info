@@ -52,10 +52,8 @@ const teamReducer = (state = initialState, action) =>
                 currentCharacter: action.payload
             }
         case 'allData/dataReceived':
-          return {
-              ...state,
-              allData: action.payload
-          }
+          console.log("Setting data: ", action.payload);
+          return {...state, allData: action.payload }
         default:
             return state;
     }
@@ -76,6 +74,7 @@ let allData = store.getState().allData;
       const apiCall = await fetch(url);
       const response = await apiCall.json();
       //setData(response);
+      console.log("response: ", response);
       store.dispatch({type: 'allData/dataReceived', payload: response});
   }
 

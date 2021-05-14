@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useStore } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import CharacterNav from './CharacterNav';
@@ -7,10 +8,14 @@ import CharacterButton from './CharacterButton';
 
 export default function TeamBuildPage(props)
 {
-    const allData = props.allData;
+    //const allData = props.allData;
     const store = useStore();
     const [state, updateState] = useState({});
     store.subscribe(() => {updateState(store.getState())});
+    const teamList = store.getState().teamList;
+    const teamSubmitted = store.getState().teamSubmitted;
+    const currentCharacter = store.getState().currentCharacter;
+    const allData = store.getState().allData;
 
     function addCharacter(character)
     {
@@ -47,7 +52,7 @@ export default function TeamBuildPage(props)
     {
         let id = "chara-btn-" + e.target.value;
         var elem = document.getElementById(id);
-        if(state.teamList.length < 4 && !state.teamList.includes(e.target.value))
+        if(teamList.length < 4 && !teamList.includes(e.target.value))
         {
             store.dispatch(addCharacter(e.target.value));
             document.getElementsByClassName(e.target.getAttribute('c_name'))[0].style.borderRadius = "7px";
@@ -61,7 +66,7 @@ export default function TeamBuildPage(props)
                 elem.innerHTML = "Add to Team";
             }
         }
-        else if(state.teamList.length === 4 && !state.teamList.includes(e.target.value))
+        else if(teamList.length === 4 && !teamList.includes(e.target.value))
         {
             alert("Team has reached max members! Please remove a member to add another.");
         }
@@ -83,10 +88,10 @@ export default function TeamBuildPage(props)
 
     function teamSubmitClicked()
     {
-        if(state.teamList.length > 0)
+        if(teamList.length > 0)
         {
             store.dispatch(submittedTeam());
-            alert("Team set: " + String(state.teamList) + "\nGathering info...");
+            alert("Team set: " + String(teamList) + "\nGathering info...");
             console.log("value of allData on submit: ", allData);
         }
         else
@@ -106,7 +111,7 @@ export default function TeamBuildPage(props)
         character_btns.push((<CharacterButton name={ characterList[i] } onCharaClick={ onCharaButtonClick } key={ i }/>))
     }
     
-    if(!state.teamSubmitted)
+    if(!teamSubmitted)
     {
         return(
             <div class="container-fluid team-page text-center">
@@ -120,23 +125,24 @@ export default function TeamBuildPage(props)
     } 
     else
     {
-        if(state.currentCharacter === "")
+        if(currentCharacter === "")
         {
-            store.dispatch(changeCurrentCharacter(state.teamList[0]));
+            store.dispatch(changeCurrentCharacter(teamList[0]));
         }
-        console.log("currentCharacter: ", state.currentCharacter);
-        console.log("allData[currentCharacter]: ", state.allData[state.currentCharacter]);
+        console.log("currentCharacter: ", currentCharacter);
+        console.log("allData[currentCharacter]: ", allData[currentCharacter]);
         return(
             <div class="container-fluid info-page text-center">
                 <h1 class="title-header2">Genshin Info</h1>
                 <div class="row justify-content-center">
                 <div class="col-7 chara-card-outer-div">
-                    {<CharacterCard info={ state.allData[state.currentCharacter] }/>}
+                    {<CharacterCard info={ allData[currentCharacter] }/>}
                 </div>
                 <div class="col-2">
-                    <CharacterNav team={ state.teamList } navClick={ navClicked } />
+                    <CharacterNav team={ teamList } navClick={ navClicked } />
                 </div>
                 </div>
+                <Link to="/" >Back to Home</Link>
             </div>
         ); 
     }
