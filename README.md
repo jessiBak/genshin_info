@@ -1,7 +1,8 @@
 # Genshin Info
 A React-Flask web app to give information about characters and their talent/weapon material availability for the game Genshin Impact
 
-* CharacterBrowsePage currently gives errors with redux, to get a sense of how it will look when working, see commit `9ddff27` on main branch.
+* ~~CharacterBrowsePage currently gives errors with redux, to get a sense of how it will look when working, see commit `9ddff27` on main branch.~~
+    * Nevermind, it works!
 
 # Requirements:
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 // 0 = Mon, 1 = Tues, 2 = Wed, 3 = Thurs, 4 = Fri, 5 = Sat, 6 = Sun
@@ -58,6 +59,7 @@ export default function PlannerPage(props)
                     <img className='tal-img' src='/images/Aerosiderite.png' alt='Aerosiderite Set'/>
                 </div>
             </div>
+            <Link to="/" >Back to Home</Link>
         </div>
     );
 }
