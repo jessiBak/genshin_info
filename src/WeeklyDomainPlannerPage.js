@@ -13,18 +13,50 @@ const day_map =
     6: "Sunday"
 }
 
-export default function PlannerPage()
+export default function PlannerPage(props)
 {
     return(
-        <div class="container planner-page">
+        <div class="container-fluid px-0 planner-page">
             <div class="row planner-cols">
-                <div class="col-md-1">Sunday</div>
-                <div class="col-md-1">Monday</div>
-                <div class="col-md-1">Tuesday</div>
-                <div class="col-md-1">Wednesday</div>
-                <div class="col-md-1">Thursday</div>
-                <div class="col-md-1">Friday</div>
-                <div class="col-md-1">Saturday</div>
+                <div class="col-md-1 week-col">
+                    <h2>Sunday</h2>
+                    <img className='tal-img' src='/images/Decarabian.png' alt='Decarabian Set'/>
+                    <img className='tal-img' src='/images/Boreal.png' alt='Boreal Wolf Set'/>
+                    <img className='tal-img' src='/images/Dandelion.png' alt='Dandelion Gladiator Set'/>
+                    <img className='tal-img' src='/images/Guyun.png' alt='Guyun Set'/>
+                    <img className='tal-img' src='/images/Elixir.png' alt='Mist Veiled Elixir Set'/>
+                    <img className='tal-img' src='/images/Aerosiderite.png' alt='Aerosiderite Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Monday</h2>
+                    <img className='tal-img' src='/images/Decarabian.png' alt='Decarabian Set'/>
+                    <img className='tal-img' src='/images/Guyun.png' alt='Guyun Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Tuesday</h2>
+                    <img className='tal-img' src='/images/Elixir.png' alt='Mist Veiled Elixir Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Wednesday</h2>
+                    <img className='tal-img' src='/images/Boreal.png' alt='Boreal Wolf Set'/>
+                    <img className='tal-img' src='/images/Dandelion.png' alt='Dandelion Gladiator Set'/>
+                    <img className='tal-img' src='/images/Aerosiderite.png' alt='Aerosiderite Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Thursday</h2>
+                    <img className='tal-img' src='/images/Decarabian.png' alt='Decarabian Set'/>
+                    <img className='tal-img' src='/images/Guyun.png' alt='Guyun Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Friday</h2>
+                    <img className='tal-img' src='/images/Boreal.png' alt='Boreal Wolf Set'/>
+                    <img className='tal-img' src='/images/Elixir.png' alt='Mist Veiled Elixir Set'/>
+                </div>
+                <div class="col-md-1 week-col">
+                    <h2>Saturday</h2>
+                    <img className='tal-img' src='/images/Dandelion.png' alt='Dandelion Gladiator Set'/>
+                    <img className='tal-img' src='/images/Aerosiderite.png' alt='Aerosiderite Set'/>
+                </div>
             </div>
         </div>
     );

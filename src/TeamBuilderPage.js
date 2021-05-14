@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useStore } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import CharacterNav from './CharacterNav';
@@ -141,6 +142,7 @@ export default function TeamBuildPage(props)
                     <CharacterNav team={ teamList } navClick={ navClicked } />
                 </div>
                 </div>
+                <Link to="/" >Back to Home</Link>
             </div>
         ); 
     }
