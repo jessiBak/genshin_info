@@ -70,7 +70,7 @@ let allData = store.getState().allData;
   
   async function getInfo()
   {
-      const url = '/characters/all';
+      const url = 'http://127.0.0.1:5000/characters/all';
       const apiCall = await fetch(url);
       const response = await apiCall.json();
       //setData(response);
